@@ -1,3 +1,6 @@
+import 'package:app_store/models/model_product.dart';
+import 'package:app_store/services/add_product.dart';
+import 'package:app_store/services/update_product.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -106,7 +109,18 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
+        onPressed: ()async{
+        Map<String,dynamic> data = await UpdateProductService().updateProduct(
+          id: '7',
+            title: 'ali fawzy',
+            price: '55',
+            decs: 'decs23 ali',
+            image: 'aliimage',
+            category: 'electronic',
+          );
+
+          print(data);
+        },
         tooltip: 'Increment',
         child: const Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.

@@ -1,7 +1,7 @@
 class ModelProduct {
   final int id;
   final String title;
-  final double price;
+  final String price;
   final String description;
   final String category;
   final String image;
@@ -31,12 +31,13 @@ class ModelProduct {
 }
 
 class ModelProductRating {
-  final double rate;
-  final int count;
+  final double? rate;
+  final int? count;
 
   ModelProductRating({required this.rate, required this.count});
 
   factory ModelProductRating.fromJson(jsonData) {
+    
     return ModelProductRating(
       rate: jsonData['rating']['rate'],
       count: jsonData['rating']['count'],

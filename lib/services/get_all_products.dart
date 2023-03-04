@@ -1,15 +1,11 @@
-import 'dart:convert';
 import 'package:app_store/api/api.dart';
 import 'package:app_store/models/model_product.dart';
 
 class AllProductsService {
   Future<List<ModelProduct>> getAllProducts() async {
-    var response =
-        await Api().get(
-      Uri.parse('https://fakestoreapi.com/products'),
+    List<Map<String, dynamic>> data = await Api().get(
+      url: 'https://fakestoreapi.com/products',
     );
-
-    List<Map<String, dynamic>> data = jsonDecode(response.body);
 
     List<ModelProduct> productsList = [];
 
