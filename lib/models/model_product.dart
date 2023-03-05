@@ -21,7 +21,7 @@ class ModelProduct {
     return ModelProduct(
       id: jsonData['id'],
       title: jsonData['title'],
-      price: jsonData['price'],
+      price: jsonData['price'].toString(),
       description: jsonData['description'],
       category: jsonData['category'],
       image: jsonData['image'],
@@ -31,15 +31,14 @@ class ModelProduct {
 }
 
 class ModelProductRating {
-  final double? rate;
+  final String rate;
   final int? count;
 
   ModelProductRating({required this.rate, required this.count});
 
   factory ModelProductRating.fromJson(jsonData) {
-    
     return ModelProductRating(
-      rate: jsonData['rating']['rate'],
+      rate: jsonData['rating']['rate'].toString(),
       count: jsonData['rating']['count'],
     );
   }

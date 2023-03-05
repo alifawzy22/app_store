@@ -3,7 +3,7 @@ import 'package:app_store/models/model_product.dart';
 
 class AllProductsService {
   Future<List<ModelProduct>> getAllProducts() async {
-    List<Map<String, dynamic>> data = await Api().get(
+    List<dynamic> data = await Api().get(
       url: 'https://fakestoreapi.com/products',
     );
 

@@ -25,8 +25,8 @@ class Api {
 
   Future<dynamic> post({
     required String url,
-     dynamic body,
-     String? token,
+    dynamic body,
+    String? token,
   }) async {
     Map<String, String> headers = {
       'Content-Type': 'application/x-www-form-urlencoded',
@@ -41,11 +41,11 @@ class Api {
       headers: headers,
     );
 
-    if(response.statusCode == 200){
-     Map<String,dynamic> data =  jsonDecode(response.body);
+    if (response.statusCode == 200) {
+      Map<String, dynamic> data = jsonDecode(response.body);
 
-     return data;
-    }else{
+      return data;
+    } else {
       throw Exception(
           'there is an error with status code = ${response.statusCode} and body = ${jsonDecode(response.body)}');
     }
@@ -53,8 +53,8 @@ class Api {
 
   Future<dynamic> put({
     required String url,
-   dynamic body,
-     String? token,
+    dynamic body,
+    String? token,
   }) async {
     Map<String, String> headers = {
       'Content-Type': 'application/x-www-form-urlencoded',
@@ -69,14 +69,13 @@ class Api {
       headers: headers,
     );
 
-    if(response.statusCode == 200){
-     Map<String,dynamic> data =  jsonDecode(response.body);
+    if (response.statusCode == 200) {
+      Map<String, dynamic> data = jsonDecode(response.body);
 
-     return data;
-    }else{
+      return data;
+    } else {
       throw Exception(
           'there is an error with status code = ${response.statusCode} and body = ${jsonDecode(response.body)}');
     }
   }
-
 }
